@@ -20,7 +20,7 @@ public class Usuario {
     private Integer run;
 
     @Column(nullable = false)
-    private Integer dv;
+    private String dv;
 
     @Column(nullable = false)
     private String nombre;
