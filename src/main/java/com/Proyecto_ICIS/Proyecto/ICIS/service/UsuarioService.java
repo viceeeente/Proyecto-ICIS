@@ -13,6 +13,10 @@ public class UsuarioService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
+    public void guardar(Usuario usuario) {
+        usuarioRepository.save(usuario);
+    }
+
     public Optional<Usuario> autenticar(String nombre, String password) {
         Optional<Usuario> usuario = usuarioRepository.findByNombre(nombre);
 

@@ -7,9 +7,15 @@
 <body>
 
     <h1>Bienvenido a la aplicacion de Aduanas</h1>
-    <p>haz click abajo para iniciar sesión</p>
+
     <form th:action="@{/login}" method="get">
+        <p>haz click abajo para iniciar sesión</p>
         <button type="submit">Ir al login</button>
+    </form>
+
+    <form>
+        <p>si no tienes una cuenta, registrate aquí</p>
+        <button type="submit">Registrar</button>
     </form>
 
 </body>
