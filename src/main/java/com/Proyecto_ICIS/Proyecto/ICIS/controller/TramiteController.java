@@ -1,7 +1,9 @@
 package com.Proyecto_ICIS.Proyecto.ICIS.controller;
 
+import com.Proyecto_ICIS.Proyecto.ICIS.model.Menor;
 import com.Proyecto_ICIS.Proyecto.ICIS.model.TramiteFormularioSalidaOIngreso;
 import com.Proyecto_ICIS.Proyecto.ICIS.model.Usuario;
+import com.Proyecto_ICIS.Proyecto.ICIS.model.Vehiculo;
 import com.Proyecto_ICIS.Proyecto.ICIS.repository.TramiteRepository;
 import com.Proyecto_ICIS.Proyecto.ICIS.service.UsuarioService;
 import jakarta.servlet.http.HttpSession;
@@ -72,11 +74,11 @@ public class TramiteController {
             return "redirect:/login-tramite?error=acceso";
         }
         try {
-            tramiteRepository.save(formulario);
+            TramiteFormularioSalidaOIngreso tramiteGuardado = tramiteRepository.save(formulario);
             System.out.println("Tramite guardado");
-            return "redirect:/home";
+            return "redirect:/resumen-tramite/" + tramiteGuardado.getId();
         }   catch (Exception e ) {
-            return "tramite";
+            return "redirect:/home";
         }
     }
 
