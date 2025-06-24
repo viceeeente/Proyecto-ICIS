@@ -17,13 +17,25 @@ public class UsuarioService {
         usuarioRepository.save(usuario);
     }
 
-    public Optional<Usuario> autenticar(String nombre, String password) {
+    public Optional<Usuario> autenticarLogin(String nombre, String password) {
         Optional<Usuario> usuario = usuarioRepository.findByNombre(nombre);
 
         if (usuario.isPresent() && usuario.get().getPassword().equals(password)) {
             return usuario;
         }
 
+        return Optional.empty();
+    }
+
+    public Optional<Usuario> autenticarLoginTramite(String nombre, String claveUnica) {
+        Optional<Usuario> usuario = usuarioRepository.findByNombre(nombre);
+
+        if(usuario.isPresent()){
+            Usuario u = usuario.get();
+            if(u.getClaveUnica().equals(claveUnica)) {
+                return usuario;
+            }
+        }
         return Optional.empty();
     }
 }

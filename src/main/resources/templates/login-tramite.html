@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Login para Tramite</title>
+</head>
+<body>
+<div class="login-tramite-container">
+    <h2>Para poder realizar un tramite, ingrese su clave unica</h2>
+
+    <form th:action="@{/login-tramite}" method="post">
+        <input type="text" name="nombre" placeholder="Usuario" required>
+        <input type="password" name="claveUnica" placeholder="ClaveUnica" required>
+
+    </form>
+
+</div>
+
+</body>
+</html>
