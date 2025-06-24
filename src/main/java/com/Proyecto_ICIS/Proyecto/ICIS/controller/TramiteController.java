@@ -1,9 +1,6 @@
 package com.Proyecto_ICIS.Proyecto.ICIS.controller;
 
-import com.Proyecto_ICIS.Proyecto.ICIS.model.Menor;
-import com.Proyecto_ICIS.Proyecto.ICIS.model.TramiteFormularioSalidaOIngreso;
-import com.Proyecto_ICIS.Proyecto.ICIS.model.Usuario;
-import com.Proyecto_ICIS.Proyecto.ICIS.model.Vehiculo;
+import com.Proyecto_ICIS.Proyecto.ICIS.model.*;
 import com.Proyecto_ICIS.Proyecto.ICIS.repository.TramiteRepository;
 import com.Proyecto_ICIS.Proyecto.ICIS.service.UsuarioService;
 import jakarta.servlet.http.HttpSession;
@@ -45,6 +42,7 @@ public class TramiteController {
         formulario.setUsuario(usuario);
         formulario.setVehiculo(new Vehiculo());
         formulario.setMenor(new Menor());
+        formulario.setAlimento(new Alimento());
 
         model.addAttribute("tramiteFormularioSalidaOIngreso",formulario);
         return "tramite";

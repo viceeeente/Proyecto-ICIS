@@ -4,17 +4,22 @@
     <meta charset="UTF-8">
     <title>App Aduanas</title>
     <link rel="stylesheet" th:href="@{/css/bienvenida.css}">
+    <link rel="icon" href="/static/imagenes/icono.jpg" type="image/x-icon">
+
 </head>
 <body>
+<div class="encabezado">
+    <h1>Bienvenidos a App Aduanas</h1>
+    <img src="/static/imagenes/logo-aduana.png.jpg" alt="Logo Aduana" class="logo-derecha">
+</div>
 
-<h1>Bienvenido a la aplicacion de Aduanas</h1>
 
-<form th:action="@{/login}" method="get">
-    <p>Haz click abajo para iniciar sesión</p>
-    <button type="submit">Ir al login</button>
+<form th:action="@{/login}" method="get" class="form-login">
+    <p>Haz click aquí para iniciar sesión</p>
+    <button type="submit">Login</button>
 </form>
 
-<form th:action="@{/register}"  method="get">
+<form th:action="@{/register}"  method="get" class="form-register">
     <p>Registrate aquí</p>
     <button type="submit">Registrar</button>
 </form>
