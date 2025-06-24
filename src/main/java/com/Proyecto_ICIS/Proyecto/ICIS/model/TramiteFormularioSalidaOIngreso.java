@@ -25,6 +25,9 @@ public class TramiteFormularioSalidaOIngreso {
     private String nombre;
 
     @Column (nullable = false)
+    private String claveUnica;
+
+    @Column (nullable = false)
     private String nacionalidad;
 
     @Column (nullable = false)

@@ -16,8 +16,8 @@ public class Usuario {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private Integer run;
+    @Column(nullable = false, unique = true)
+    private String run;
 
     @Column(nullable = false)
     private String dv;
