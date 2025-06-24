@@ -15,22 +15,32 @@ public class LoginController {
     @Autowired
     private UsuarioService usuarioService;
 
+    @GetMapping("/bienvenida")
+    public String mostratBienvenida(){
+        return "bienvenida";
+    }
+
     @GetMapping("/login")
     public String mostrarFormularioLogin() {
         return "login";
+    }
+
+    @GetMapping("/home")
+    public String mostratHome(Model model) {
+        return "home";
     }
 
     @PostMapping("/login")
     public String procesarLogin(@RequestParam String nombre,
                                 @RequestParam String password,
                                 Model model) {
-        Optional<Usuario> usuario = usuarioService.autenticar(nombre, password);
+        Optional<Usuario> usuario = usuarioService.autenticarLogin(nombre, password);
 
         if (usuario.isPresent()) {
             model.addAttribute("usuario", usuario.get());
-            return "bienvenido";
+            return "redirect:/home";
         } else {
-            model.addAttribute("error", "Nombre o contraseña incorrectos");
+            model.addAttribute("errorLogin", "Nombre o contraseña incorrectos");
             return "login";
         }
     }
