@@ -1,0 +1,82 @@
+body {
+  background: linear-gradient(135deg, #e6f2ff, #cce6ff, #b3d9ff) !important;
+  font-family: 'Arial', sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  padding: 30px;
+}
+
+#titulo {
+  background: linear-gradient(to right, #0077cc, #0055a5);
+  color: white;
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  margin-bottom: 40px;
+}
+
+h2 {
+  margin: 0;
+  font-size: 28px;
+}
+
+form {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  border: 2px solid #0077cc;
+}
+
+label {
+  display: block;
+  margin-top: 20px;
+  color: #0055a5;
+  font-weight: bold;
+}
+
+input, select {
+  background: rgba(255, 255, 255, 0.95) !important;
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #0077cc;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+
+input:focus, select:focus {
+  border-color: #0055a5;
+  box-shadow: 0 0 0 3px rgba(0, 119, 204, 0.3);
+  outline: none;
+}
+
+#menuVehiculo, #menuMenor {
+  background: rgba(230, 242, 255, 0.7);
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 8px;
+  border: 2px dashed #0077cc;
+}
+
+button {
+  background: linear-gradient(to bottom, #0066cc, #004d99) !important;
+  color: white !important;
+  padding: 16px 32px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 30px;
+  transition: all 0.3s;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+button:hover {
+  background: linear-gradient(to bottom, #0055a5, #003d7a) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 7px 14px rgba(0,0,0,0.3);
+}

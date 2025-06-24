@@ -1,0 +1,66 @@
+body {
+  background: linear-gradient(135deg, #d9ecff, #b3d6ff, #8cc0ff) !important;
+  font-family: 'Arial', sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  padding: 30px;
+}
+
+#tituloAyuda {
+  background: linear-gradient(to right, #0077cc, #0055a5);
+  color: white;
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  margin-bottom: 40px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+section {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 25px;
+  border-radius: 8px;
+  margin: 25px 0;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  border-left: 5px solid #0077cc;
+}
+
+h2 {
+  color: #0055a5;
+  margin-top: 0;
+  font-size: 24px;
+}
+
+p {
+  line-height: 1.6;
+  color: #333;
+}
+
+li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+a {
+  display: inline-block;
+  background: linear-gradient(to bottom, #0055a5, #003d7a);
+  color: white;
+  padding: 12px 25px;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-top: 30px;
+  font-weight: bold;
+  transition: all 0.3s;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+a:hover {
+  background: linear-gradient(to bottom, #004080, #002b5a);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(0,0,0,0.3);
+}

@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Formulario para Ingreso o Salida del Pais</title>
+  <link rel="stylesheet" th:href="@{/css/tramite.css}">
 </head>
 <body>
 
@@ -34,7 +35,7 @@
          oninvalid="this.setCustomValidity('La fecha de ingreso es obligatoria. Por favor, ingrésala')"
          oninput="this.setCustomValidity('')">
 
-  <label for="fechaSalida">Fecha de Ingreso:</label>
+  <label for="fechaSalida">Fecha de Salida :</label>
   <input type="date"
          id="fechaSalida"
          th:field="*{fechaSalida}"

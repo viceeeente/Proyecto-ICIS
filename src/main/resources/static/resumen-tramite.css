@@ -1,0 +1,64 @@
+body {
+  background: linear-gradient(135deg, #e6f2ff, #cce6ff, #b3d9ff) !important;
+  font-family: 'Arial', sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  padding: 30px;
+}
+
+h1 {
+  background: linear-gradient(to right, #0077cc, #0055a5);
+  color: white;
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  margin-bottom: 40px;
+}
+
+p {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-left: 4px solid #0077cc;
+}
+
+strong {
+  color: #0055a5;
+}
+
+div {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 25px;
+  border-radius: 8px;
+  margin: 20px 0;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  border: 1px solid #b3d9ff;
+}
+
+h2 {
+  color: #0055a5;
+  margin-top: 0;
+  border-bottom: 2px solid #b3d9ff;
+  padding-bottom: 10px;
+}
+
+a {
+  display: inline-block;
+  background: linear-gradient(to bottom, #0055a5, #003d7a);
+  color: white;
+  padding: 14px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-top: 30px;
+  font-weight: bold;
+  transition: all 0.3s;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+a:hover {
+  background: linear-gradient(to bottom, #004080, #002b5a);
+  transform: translateY(-3px);
+  box-shadow: 0 7px 14px rgba(0,0,0,0.3);
+}

@@ -1,0 +1,51 @@
+body {
+  background: linear-gradient(135deg, #cce5ff, #99ccff, #66b2ff) !important;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+#Aplicacion-de-Aduanas {
+  background: linear-gradient(to right, #0066cc, #004d99);
+  color: white;
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  margin-bottom: 40px;
+}
+
+form {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 30px;
+  border-radius: 10px;
+  margin: 25px 0;
+  border: 2px solid #0066cc;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+  transition: all 0.3s;
+}
+
+form:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+button {
+  background: linear-gradient(to bottom, #004d99, #003366) !important;
+  color: white !important;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.3s;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+button:hover {
+  background: linear-gradient(to bottom, #003d7a, #00264d) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
