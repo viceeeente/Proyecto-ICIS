@@ -12,20 +12,35 @@
 
 <form th:action="@{/tramite}" th:object="${tramiteFormularioSalidaOIngreso}" method="post">
 
+  <input type="hidden" th:field="*{run}">
+
   <label for="nombre">Nombre:</label>
   <input type="text" id="nombre" th:field="*{nombre}" readonly>
+
+  <label for="runUsuario">Run:</label>
+  <input type="text" id="runUsuario" th:field="*{usuario.run}" readonly>
 
   <label for="claveUnica">Clave Unica: </label>
   <input type="text" id="claveUnica" th:field="*{claveUnica}" readonly>
 
   <label for="nacionalidad">Nacionalidad: </label>
-  <input type="text" id="nacionalidad" th:field="*{nacionalidad}">
+  <input type="text" id="nacionalidad" th:field="*{nacionalidad}" required>
 
-  <label for="fechaIngreso">Fecha de Ingreso: </label>
-  <input type="date" id="fechaIngreso" th:field="*{fechaIngreso}">
+  <label for="fechaIngreso">Fecha de Ingreso:</label>
+  <input type="date"
+         id="fechaIngreso"
+         th:field="*{fechaIngreso}"
+         required
+         oninvalid="this.setCustomValidity('La fecha de ingreso es obligatoria. Por favor, ingrésala')"
+         oninput="this.setCustomValidity('')">
 
-  <label for="fechaSalida">Fecha de Salida: </label>
-  <input type="date" id="fechaSalida" th:field="*{fechaSalida}">
+  <label for="fechaSalida">Fecha de Ingreso:</label>
+  <input type="date"
+         id="fechaSalida"
+         th:field="*{fechaSalida}"
+         required
+         oninvalid="this.setCustomValidity('La fecha de salida es obligatoria. Por favor, ingrésala')"
+         oninput="this.setCustomValidity('')">
 
   <input type="checkbox" id="vehiculoPropio" th:field="*{vehiculoPropio}" onclick="mostrarOcultar('menuVehiculo', this)">
   <label for="vehiculoPropio">¿Viaja en vehiculo propio?</label>
@@ -33,13 +48,17 @@
   <div id="menuVehiculo" style="display: none;">
 
     <label for="patente">Patente:</label>
-    <input type="text" id="patente" name="patente">
+    <input type="text" id="patente" th:field="*{vehiculo.patente}">
 
     <label for="marca">Marca:</label>
-    <input type="text" id="marca" name="marca">
+    <input type="text" id="marca" th:field="*{vehiculo.marca}">
 
     <label for="modelo">Modelo:</label>
-    <input type="text" id="modelo" name="modelo">
+    <input type="text" id="modelo" th:field="*{vehiculo.modelo}">
+
+    <label for="color">Color:</label>
+    <input type="text" id="color" th:field="*{vehiculo.color}">
+
 
     <label for="paisOrigen">País de origen:</label>
     <select th:field="*{vehiculo.paisOrigen}">
@@ -50,23 +69,42 @@
 
   </div>
 
-
-  <input type="checkbox" id="viajaConMenor" onclick="mostrarOcultar('menuMenor', this)">
+  <input type="hidden" name="viajaConMenor" value="false" />
+  <input type="checkbox" id="viajaConMenor" th:field="*{viajaConMenor}" onclick="mostrarOcultar('menuMenor', this)">
   <label>¿Viaja con un menor de edad?</label>
 
   <div id="menuMenor" style="display: none;">
 
-    <label for="nombreMenor">Nombre del menor:</label>
-    <input type="text" id="nombreMenor" name="nombreMenor">
-
-    <label for="parentezo">Parentezco:</label>
-    <input type="text" id="parentezo" name="parentezco">
-
     <label for="run">Run:</label>
-    <input type="number" id="run" name="run">
+    <input type="text" id="run" th:field="*{menor.run}" pattern="[0-9]{7,8}" inputmode="numeric" maxlength="8" required>
+
+    <label for="dv">Dv:</label>
+    <input type="text" id="dv" th:field="*{menor.dv}" maxlength="1">
+
+    <label for="nombreMenor">Nombre del menor:</label>
+    <input type="text" id="nombreMenor" th:field="*{menor.nombre}">
+
+    <label for="segundoNombre">Segundo Nombre:</label>
+    <input type="text" id="segundoNombre" th:field="*{menor.segundoNombre}">
+
+    <label for="apellidoPaterno">Apellido Paterno:</label>
+    <input type="text" id="apellidoPaterno" th:field="*{menor.apellidoPaterno}">
+
+    <label for="apellidoMaterno">Apellido Materno:</label>
+    <input type="text" id="apellidoMaterno" th:field="*{menor.apellidoMaterno}">
+
+    <label for="tipoParentesco">Parentesco:</label>
+    <select th:field="*{menor.tipoParentesco}">
+      <option th:each="parentesco : ${T(com.Aduanas.Aduana.model.Parentesco).values()}"
+              th:value="${parentesco}" th:text="${parentesco}">
+      </option>
+    </select>
 
   </div>
 
+  <form th:action="@{/tramite}" method="post">
+    <button type="submit">Enviar</button>
+  </form>
 
 
 </form>
@@ -88,6 +126,18 @@
           mostrarOcultar('menuVehiculo', vehiculoCheck);
       }
   };
+
+  function mostrarOcultar(id, checkbox) {
+    const seccion = document.getElementById(id);
+    const inputs = seccion.querySelectorAll("input, select");
+    const mostrar = checkbox.checked;
+
+    seccion.style.display = mostrar ? 'block' : 'none';
+
+    inputs.forEach(input => {
+      input.disabled = !mostrar;
+    });
+  }
 </script>
 
 

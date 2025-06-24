@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Data
@@ -31,10 +31,10 @@ public class TramiteFormularioSalidaOIngreso {
     private String nacionalidad;
 
     @Column (nullable = false)
-    private Date fechaSalida;
+    private LocalDate fechaSalida;
 
     @Column (nullable = false)
-    private Date fechaIngreso;
+    private LocalDate fechaIngreso;
 
     @Column (nullable = false)
     private Boolean vehiculoPropio;
@@ -47,5 +47,8 @@ public class TramiteFormularioSalidaOIngreso {
 
     @OneToOne(cascade = CascadeType.ALL)
     private Vehiculo vehiculo;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private Menor menor;
 
 }
