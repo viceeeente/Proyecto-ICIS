@@ -41,8 +41,12 @@
     <label for="modelo">Modelo:</label>
     <input type="text" id="modelo" name="modelo">
 
-    <label for="paisOrigen">Pais de origen:</label>
-    <input type="text" id="paisOrigen" name="paisOrigen">
+    <label for="paisOrigen">País de origen:</label>
+    <select th:field="*{vehiculo.paisOrigen}">
+      <option th:each="pais : ${T(com.Aduanas.Aduana.model.PaisOrigen).values()}"
+              th:value="${pais}" th:text="${pais}">
+      </option>
+    </select>
 
   </div>
 

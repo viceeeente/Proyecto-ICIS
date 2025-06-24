@@ -1,5 +1,6 @@
 package com.Proyecto_ICIS.Proyecto.ICIS.model;
 
+import com.Proyecto_ICIS.Proyecto.ICIS.model.PaisOrigen;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,7 +17,7 @@ public class Vehiculo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @Column (nullable = false)
     private String patente;
 
     @Column (nullable = false)

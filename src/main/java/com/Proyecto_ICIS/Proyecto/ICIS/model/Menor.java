@@ -5,47 +5,40 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
-
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="formularioSalida-Ingreso")
-public class TramiteFormularioSalidaOIngreso {
+@Table(name="menor")
+public class Menor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column (nullable = false)
-    private String run;
-
-    @Column (nullable = false)
     private String nombre;
 
     @Column (nullable = false)
-    private String claveUnica;
+    private String segundoNombre;
 
     @Column (nullable = false)
-    private String nacionalidad;
+    private String apellidoPaterno;
 
     @Column (nullable = false)
-    private Date fechaSalida;
+    private String apellidoMaterno;
 
     @Column (nullable = false)
-    private Date fechaIngreso;
+    private String run;
 
     @Column (nullable = false)
-    private Boolean vehiculoPropio;
+    private String dv;
 
-    @Column (nullable = false)
-    private Boolean viajaConMenor;
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Parentesco tipoParentesco;
 
-    @ManyToOne
-    private Usuario usuario;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    private Vehiculo vehiculo;
+    @OneToOne
+    private TramiteFormularioSalidaOIngreso tramite;
 
 }

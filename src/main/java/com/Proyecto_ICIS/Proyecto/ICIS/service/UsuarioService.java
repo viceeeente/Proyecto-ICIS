@@ -17,7 +17,7 @@ public class UsuarioService {
         usuarioRepository.save(usuario);
     }
 
-    public Optional<Usuario> autenticar(String nombre, String password) {
+    public Optional<Usuario> autenticarLogin(String nombre, String password) {
         Optional<Usuario> usuario = usuarioRepository.findByNombre(nombre);
 
         if (usuario.isPresent() && usuario.get().getPassword().equals(password)) {
@@ -37,5 +37,10 @@ public class UsuarioService {
             }
         }
         return Optional.empty();
+    }
+
+    public Usuario buscarPorNombre(String nombre) {
+        return usuarioRepository.findByNombre(nombre)
+                .orElseThrow(()-> new RuntimeException("Usuario no encontrado"));
     }
 }

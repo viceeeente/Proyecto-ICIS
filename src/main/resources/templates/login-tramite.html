@@ -1,22 +1,23 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Login para Tramite</title>
 </head>
 <body>
-<div class="login-container">
-    <h2>Inicio de Sesión</h2>
+<div class="login-tramite-container">
+    <h2>Para poder realizar un tramite, ingrese su clave unica</h2>
 
-    <form th:action="@{/login}" method="post">
-        <input type="text" name="nombre" th:value="${nombre}" placeholder="Usuario" required />
-        <input type="password" name="password" th:value="${password}" placeholder="Contraseña" required />
+    <form th:action="@{/login-tramite}" method="post">
+        <input type="text" name="nombre" placeholder="Usuario" required>
+        <input type="password" name="claveUnica" placeholder="Clave Unica" required>
         <button type="submit">Ingresar</button>
-    </form>
 
-    <div th:id="${errorLogin}" class="error">
-        <p th:text="${errorLogin}"></p>
-    </div>
+        <div th:id="${errorTramiteFormulario}" class="error">
+            <p th:text="${errorTramiteFormulario}"></p>
+        </div>
+
+    </form>
 
 </div>
 
