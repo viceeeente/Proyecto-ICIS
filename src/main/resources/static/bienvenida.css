@@ -82,3 +82,36 @@ button:hover {
 .menu.active {
     display: block;
 }
+.center-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-button{
+    background: linear-gradient(to bottom, #0066cc, #004d99) !important;
+      color: white !important;
+      padding: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 30px;
+      width: auto;
+      min-width:120px;
+      max-width:240px;
+      margin-left: auto;
+      margin-right: auto;
+      transition: all 0.3s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+}
+
+.menu-button:hover {
+  background: linear-gradient(to bottom, #0055a5, #003d7a) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 7px 14px rgba(0,0,0,0.3);
+}
