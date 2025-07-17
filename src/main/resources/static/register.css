@@ -21,12 +21,21 @@ h2 {
   font-size: 28px;
 }
 
-form {
+.form-container {
   background: rgba(255, 255, 255, 0.9);
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.1);
   border: 2px solid #0080ff;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+form {
+  background: none;
+  padding: 0;
+  box-shadow: none;
+  border: none;
 }
 
 label {

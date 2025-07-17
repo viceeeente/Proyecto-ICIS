@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Centro de Ayuda</title>
+    <link rel="stylesheet" th:href="@{/common-styles.css}">
     <link rel="stylesheet" th:href="@{/centro-ayuda.css}">
 </head>
 <body>
@@ -21,20 +22,21 @@
 <section id="docVehiculo">
     <h2>¿Que documentos debo presentar si viajo en mi vehiculo personal?</h2>
 
-    <p>
-        Los documentos que debe ingresar el usuario al formulario son:
-        <br>
+    <p>Los documentos que debe ingresar el usuario al formulario son:</p>
+
+    <ul>
         <li>Patente</li>
         <li>Marca</li>
         <li>Modelo</li>
         <li>Color</li>
         <li>Pais de Origen</li>
-        <br>
-        Ya con esos documentos puede completar el formulario si lo requiere
-    </p>
+    </ul>
+    <p>Ya con esos documentos puede completar el formulario si lo requiere.</p>
 </section>
 
-<a href="/bienvenida">Volver al Menu</a>
+<form th:action="@{/bienvenida}" method="get" class="form-volver">
+    <button type="submit">Volver</button>
+</form>
 
 
 </body>

@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Login</title>
+  <link rel="stylesheet" th:href="@{/common-styles.css}">
   <link rel="stylesheet" th:href="@{/login.css}">
 </head>
 <body>
@@ -18,6 +19,11 @@
   <div th:id="${errorLogin}" class="error">
     <p th:text="${errorLogin}"></p>
   </div>
+
+  <form th:action="@{/bienvenida}" method="get" class="form-volver">
+    <button type="submit" class="btn-volver">Volver</button>
+
+  </form>
 
 </div>
 

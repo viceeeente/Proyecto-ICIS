@@ -14,6 +14,8 @@ body {
   text-align: center;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   margin-bottom: 40px;
+  max-width: 900px;
+  margin: 0 auto 40px auto;
 }
 
 h1 {
@@ -25,9 +27,10 @@ section {
   background: rgba(255, 255, 255, 0.9);
   padding: 25px;
   border-radius: 8px;
-  margin: 25px 0;
   box-shadow: 0 3px 10px rgba(0,0,0,0.1);
   border-left: 5px solid #0077cc;
+  max-width: 900px;
+  margin: 25px auto;
 }
 
 h2 {
@@ -46,21 +49,14 @@ li {
   line-height: 1.5;
 }
 
-a {
-  display: inline-block;
-  background: linear-gradient(to bottom, #0055a5, #003d7a);
-  color: white;
-  padding: 12px 25px;
-  border-radius: 6px;
-  text-decoration: none;
-  margin-top: 30px;
-  font-weight: bold;
-  transition: all 0.3s;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+.form-volver {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
 }
 
-a:hover {
-  background: linear-gradient(to bottom, #004080, #002b5a);
-  transform: translateY(-2px);
-  box-shadow: 0 5px 12px rgba(0,0,0,0.3);
-}
+.form-volver button {
+  width: auto;
+  padding: 10px 32px;
+  font-size: 16px;
+  margin-top: 0;
