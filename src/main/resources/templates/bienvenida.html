@@ -4,23 +4,51 @@
     <meta charset="UTF-8">
     <title>App Aduanas</title>
     <link rel="stylesheet" th:href="@{/bienvenida.css}">
+    <style>
+        .menu-opciones {
+          display: none;
+        }
 
+        .menu-opciones.active {
+          display: block;
+        }
+    </style>
 </head>
 <body>
+
 <div class="encabezado">
     <h1>Bienvenidos a App Aduanas</h1>
 </div>
 
+<input type="button" id="menuButton" value="Menú" class="menu-button">
 
-<form th:action="@{/login}" method="get" class="form-login">
-    <p>Haz click aquí para iniciar sesión</p>
-    <button type="submit">Login</button>
-</form>
+<div id="menuOpciones" class="menu-opciones">
+    <form th:action="@{/login}" method="get" class="form-login">
+        <p>Haz click aquí para iniciar sesión</p>
+        <button type="submit">Login</button>
+    </form>
 
-<form th:action="@{/register}"  method="get" class="form-register">
-    <p>Registrate aquí</p>
-    <button type="submit">Registrar</button>
-</form>
+    <form th:action="@{/register}" method="get" class="form-register">
+        <p>Regístrate aquí</p>
+        <button type="submit">Registrar</button>
+    </form>
+
+    <form th:action="@{/centro-ayuda}" method="get" class="form-ayuda">
+        <p>Centro de Ayuda</p>
+        <button type="submit">Ir</button>
+    </form>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const menuBtn = document.getElementById("menuButton");
+      const menu = document.getElementById("menuOpciones");
+
+      menuBtn.addEventListener("click", function () {
+        menu.classList.toggle("active");
+      });
+    });
+</script>
 
 </body>
 </html>
