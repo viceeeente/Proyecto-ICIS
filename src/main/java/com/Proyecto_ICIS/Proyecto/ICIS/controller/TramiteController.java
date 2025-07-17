@@ -30,9 +30,6 @@ public class TramiteController {
         System.out.println("Usuario en sesion: " + usuario);
         System.out.println("ID de sesion: " + session.getId());
 
-        if(usuario == null){
-            return "redirect:/login-tramite?error=acceso";
-        }
 
         TramiteFormularioSalidaOIngreso formulario = new TramiteFormularioSalidaOIngreso();
         formulario.setRun(usuario.getRun());

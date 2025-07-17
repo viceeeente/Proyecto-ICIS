@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Formulario para Ingreso o Salida del Pais</title>
-  <link rel="stylesheet" th:href="@{/css/tramite.css}">
 </head>
 <body>
 
@@ -61,9 +60,7 @@
     <input type="text" id="color" th:field="*{vehiculo.color}">
 
 
-    <label for="paisOrigen">País de origen:</label>
     <select th:field="*{vehiculo.paisOrigen}">
-      <option th:each="pais : ${T(com.Aduanas.Aduana.model.PaisOrigen).values()}"
               th:value="${pais}" th:text="${pais}">
       </option>
     </select>
@@ -94,9 +91,7 @@
     <label for="apellidoMaterno">Apellido Materno:</label>
     <input type="text" id="apellidoMaterno" th:field="*{menor.apellidoMaterno}">
 
-    <label for="tipoParentesco">Parentesco:</label>
     <select th:field="*{menor.tipoParentesco}">
-      <option th:each="parentesco : ${T(com.Aduanas.Aduana.model.Parentesco).values()}"
               th:value="${parentesco}" th:text="${parentesco}">
       </option>
     </select>
