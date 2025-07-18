@@ -1,56 +1,125 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="icon" th:href="@{/imagenes/icono.jpg}" type="image/jpeg" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>App Aduanas</title>
     <link rel="stylesheet" th:href="@{/bienvenida.css}">
-    <style>
-        .menu-opciones {
-          display: none;
-        }
-
-        .menu-opciones.active {
-          display: block;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
-<div class="encabezado">
-    <h1>Bienvenidos a App Aduanas</h1>
-</div>
+<nav class="menu-superior">
+    <ul>
+        <li><a href="#" th:href="@{/bienvenida?#}">Inicio</a></li>
+        <li><a href="#" th:href="@{/login}">Login</a></li>
+        <li><a href="#" th:href="@{/register}">Registrar</a></li>
+        <li><a href="#" th:href="@{/centro-ayuda}">Ayuda</a></li>
+    </ul>
+</nav>
 
-<div class="center-container">
-    <input type="button" id="menuButton" value="Opciones principales" class="menu-button">
-</div>
+<!-- Logo y encabezado -->
+<header class="header-principal">
+    <div class="logo-container">
+        <img th:src="@{/imagenes/logo-aduana.png.jpg}" alt="Logo Aduanas" class="logo-izquierda">
+    </div>
+    <div class="titulo-principal">
+        <h1>Servicio Nacional de Aduanas</h1>
+        <p class="lema">Protección de las fronteras y facilitación del comercio exterior</p>
+    </div>
+</header>
 
-<div id="menuOpciones" class="menu-opciones">
-    <form th:action="@{/login}" method="get" class="form-login">
-        <p>Haz click aquí para iniciar sesión</p>
-        <button type="submit">Login</button>
-    </form>
 
-    <form th:action="@{/register}" method="get" class="form-register">
-        <p>Regístrate aquí</p>
-        <button type="submit">Registrar</button>
-    </form>
+<section class="servicios-destacados">
+    <h2 class="seccion-titulo">Nuestros Servicios</h2>
+    <div class="servicios-grid">
+        <div class="servicio-card">
+            <i class="fas fa-box-open servicio-icono"></i>
+            <h3>Declaración de Importación</h3>
+            <p>Realice sus trámites de importación de manera rápida y segura.</p>
+            <a href="#" class="servicio-link">Más información <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="servicio-card">
+            <i class="fas fa-plane servicio-icono"></i>
+            <h3>Control Fronterizo</h3>
+            <p>Información sobre requisitos y procedimientos en fronteras.</p>
+            <a href="#" class="servicio-link">Más información <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="servicio-card">
+            <i class="fas fa-file-alt servicio-icono"></i>
+            <h3>Documentacion necesaria</h3>
+            <p>Consulte toda la documentacion y normativa vigente.</p>
+            <a href="#" th:href="@{/centro-ayuda}">Más información <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+</section>
 
-    <form th:action="@{/centro-ayuda}" method="get" class="form-ayuda">
-        <p>Centro de Ayuda</p>
-        <button type="submit">Ir</button>
-    </form>
-</div>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const menuBtn = document.getElementById("menuButton");
-      const menu = document.getElementById("menuOpciones");
+<section class="noticias">
+    <h2 class="seccion-titulo">Noticias y Novedades</h2>
+    <div class="noticias-grid">
+        <article class="noticia-card">
+            <div class="noticia-fecha">15 Jun 2023</div>
+            <h3>Nuevos procedimientos para envíos internacionales</h3>
+            <p>Actualización de los requisitos para paquetes provenientes del exterior.</p>
+            <a href="#" class="noticia-link">Leer más</a>
+        </article>
+        <article class="noticia-card">
+            <div class="noticia-fecha">28 May 2023</div>
+            <h3>Talleres de capacitación para importadores</h3>
+            <p>Inscríbase en nuestros cursos gratuitos sobre comercio exterior.</p>
+            <a href="#" class="noticia-link">Leer más</a>
+        </article>
+    </div>
+</section>
 
-      menuBtn.addEventListener("click", function () {
-        menu.classList.toggle("active");
-      });
-    });
-</script>
+
+<section class="acceso-rapido">
+    <h2 class="seccion-titulo">Acceso Rápido</h2>
+    <div class="acceso-grid">
+        <a href="#" class="acceso-item">
+            <i class="fas fa-calendar-alt"></i>
+            <span>Calendario Aduanero</span>
+        </a>
+        <a href="#" class="acceso-item">
+            <i class="fas fa-dollar-sign"></i>
+            <span>Aranceles</span>
+        </a>
+        <a href="#" class="acceso-item">
+            <i class="fas fa-question-circle"></i>
+            <span>Preguntas Frecuentes</span>
+        </a>
+        <a href="#" class="acceso-item">
+            <i class="fas fa-chart-line"></i>
+            <span>Estadísticas</span>
+        </a>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="footer-contenido">
+        <div class="footer-columna">
+            <h4>Contacto</h4>
+            <p><i class="fas fa-map-marker-alt"></i> Dirección: Av. Presidente Errázuriz 1500, Santiago</p>
+            <p><i class="fas fa-phone"></i> Teléfono: +56 2 2828 2000</p>
+            <p><i class="fas fa-envelope"></i> Email: contacto@aduana.cl</p>
+        </div>
+        <div class="footer-columna">
+            <h4>Horario de Atención</h4>
+            <p>Lunes a Viernes: 09:00 - 14:00 hrs</p>
+            <p>Aduanas terrestres: 24/7</p>
+        </div>
+        <div class="footer-columna">
+            <h4>Síguenos</h4>
+            <div class="redes-sociales">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
