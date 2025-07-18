@@ -1,31 +1,81 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="icon" th:href="@{/imagenes/icono.jpg}" type="image/jpeg" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>Login</title>
+  <title>Inicio de Sesión - Aduanas Chile</title>
   <link rel="stylesheet" th:href="@{/common-styles.css}">
   <link rel="stylesheet" th:href="@{/login.css}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+
+<div class="header-aduana">
+  <div class="logo-container">
+    <img th:src="@{/imagenes/logo-aduana.png.jpg}" alt="Logo Aduanas" class="logo">
+    <div class="logo-text">
+      <h1>ADUANAS CUSTOMS</h1>
+      <p>SERVICIO NACIONAL DE ADUANAS - CHILE</p>
+    </div>
+  </div>
+</div>
+
+<nav class="nav-menu">
+  <ul>
+    <li><a th:href="@{/bienvenida?#}">Inicio</a></li>
+    <li><a th:href="@{/login}" class="active">Login</a></li>
+    <li><a th:href="@{/register}">Registrar</a></li>
+    <li><a th:href="@{/ayuda}">Ayuda</a></li>
+  </ul>
+</nav>
+
 <div class="login-container">
-  <h2>Inicio de Sesión</h2>
-
-  <form th:action="@{/login}" method="post">
-    <input type="text" name="nombre" th:value="${nombre}" placeholder="Usuario" required />
-    <input type="password" name="password" th:value="${password}" placeholder="Contraseña" required />
-    <button type="submit">Ingresar</button>
-  </form>
-
-  <div th:id="${errorLogin}" class="error">
-    <p th:text="${errorLogin}"></p>
+  <div class="login-header">
+    <h2><i class="fas fa-sign-in-alt"></i> Inicio de Sesión</h2>
+    <p class="login-subtitle">Ingrese sus credenciales para acceder al sistema</p>
   </div>
 
-  <form th:action="@{/bienvenida}" method="get" class="form-volver">
-    <button type="submit" class="btn-volver">Volver</button>
+  <form th:action="@{/login}" method="post" class="login-form">
+    <div class="input-group">
+      <i class="fas fa-user input-icon"></i>
+      <input type="text" name="nombre" th:value="${nombre}" placeholder="Usuario" required>
+    </div>
 
+    <div class="input-group">
+      <i class="fas fa-lock input-icon"></i>
+      <input type="password" name="password" th:value="${password}" placeholder="Contraseña" required>
+    </div>
+
+    <div th:if="${errorLogin}" class="error-message">
+      <i class="fas fa-exclamation-circle"></i>
+      <span th:text="${errorLogin}"></span>
+    </div>
+
+    <button type="submit" class="btn-login">
+      <i class="fas fa-sign-in-alt"></i> Ingresar
+    </button>
   </form>
 
+  <div class="login-footer">
+    <a th:href="@{/register}" class="register-link">
+      <i class="fas fa-user-plus"></i> ¿No tienes cuenta? Regístrate
+    </a>
+
+    <form th:action="@{/bienvenida}" method="get" class="form-volver">
+      <button type="submit" class="btn-volver">
+        <i class="fas fa-arrow-left"></i> Volver al Inicio
+      </button>
+    </form>
+  </div>
 </div>
+
+<div class="contact-info">
+  <h3><i class="fas fa-info-circle"></i> Contacto</h3>
+  <p><i class="fas fa-map-marker-alt"></i> Dirección: Av. Presidente Errázuriz 1500, Santiago</p>
+  <p><i class="fas fa-phone"></i> Teléfono: +56 2 2828 2000</p>
+  <p><i class="fas fa-clock"></i> Horario: Lunes a Viernes 09:00 - 14:00 hrs</p>
+</div>
+
 
 </body>
 </html>

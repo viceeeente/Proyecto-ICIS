@@ -8,45 +8,207 @@
 <body>
 <h1>Resumen del Trámite</h1>
 
-<p th:if="${tramite.fechaIngreso != null}">
-  <strong>Fecha de Ingreso:</strong>
-  <span th:text="${tramite.fechaIngreso}"></span>
-</p>
+<!-- Datos del Usuario -->
+<div class="section">
+  <h2>Datos del Solicitante</h2>
+  <p><strong>Nombre:</strong> <span th:text="${tramite.nombre}"></span></p>
+  <p><strong>RUN:</strong> <span th:text="${tramite.run}"></span></p>
+  <p><strong>Nacionalidad:</strong> <span th:text="${tramite.nacionalidad}"></span></p>
 
-<p th:if="${tramite.fechaSalida != null}">
-  <strong>Fecha de Salida:</strong>
-  <span th:text="${tramite.fechaSalida}"></span>
-</p>
+</div>
 
-<p th:if="${tramite.vehiculoPropio != null}">
-  <strong>Vehículo Propio:</strong>
-  <span th:text="${tramite.vehiculoPropio ? 'Sí' : 'No'}"></span>
-</p>
+<!-- Datos del Viaje -->
+<div class="section">
+  <h2>Datos del Viaje</h2>
+  <p th:if="${tramite.fechaIngreso != null}">
+    <strong>Fecha de Ingreso:</strong>
+    <span th:text="${#temporals.format(tramite.fechaIngreso, 'dd/MM/yyyy')}"></span>
+  </p>
 
-<p th:if="${tramite.viajaConMenor != null}">
-  <strong>Viaja con Menor:</strong>
-  <span th:text="${tramite.viajaConMenor ? 'Sí' : 'No'}"></span>
-</p>
+  <p th:if="${tramite.fechaSalida != null}">
+    <strong>Fecha de Salida:</strong>
+    <span th:text="${#temporals.format(tramite.fechaSalida, 'dd/MM/yyyy')}"></span>
+  </p>
 
-<div th:if="${tramite.vehiculo != null}">
+  <p th:if="${tramite.vehiculoPropio != null}">
+    <strong>Vehículo Propio:</strong>
+    <span th:text="${tramite.vehiculoPropio ? 'Sí' : 'No'}"></span>
+  </p>
+
+  <p th:if="${tramite.viajaConMenor != null}">
+    <strong>Viaja con Menor:</strong>
+    <span th:text="${tramite.viajaConMenor ? 'Sí' : 'No'}"></span>
+  </p>
+
+  <p th:if="${tramite.tipoAlimento != null}">
+    <strong>Transporta Alimentos:</strong>
+    <span th:text="${tramite.tipoAlimento ? 'Sí' : 'No'}"></span>
+  </p>
+</div>
+
+<!-- Datos del Vehículo -->
+<div th:if="${tramite.vehiculoPropio and tramite.vehiculo != null}" class="section">
   <h2>Datos del Vehículo</h2>
-  <p th:if="${tramite.vehiculo.patente != null}">
+  <p th:if="${tramite.vehiculo.patente != null and !tramite.vehiculo.patente.isEmpty()}">
     <strong>Patente:</strong>
     <span th:text="${tramite.vehiculo.patente}"></span>
   </p>
 
+  <p th:if="${tramite.vehiculo.marca != null and !tramite.vehiculo.marca.isEmpty()}">
+    <strong>Marca:</strong>
+    <span th:text="${tramite.vehiculo.marca}"></span>
+  </p>
+
+  <p th:if="${tramite.vehiculo.modelo != null and !tramite.vehiculo.modelo.isEmpty()}">
+    <strong>Modelo:</strong>
+    <span th:text="${tramite.vehiculo.modelo}"></span>
+  </p>
+
+  <p th:if="${tramite.vehiculo.color != null and !tramite.vehiculo.color.isEmpty()}">
+    <strong>Color:</strong>
+    <span th:text="${tramite.vehiculo.color}"></span>
+  </p>
+
+  <p th:if="${tramite.vehiculo.paisOrigen != null}">
+    <strong>País de Origen:</strong>
+    <span th:switch="${tramite.vehiculo.paisOrigen}">
+      <span th:case="'EEUU'">Estados Unidos</span>
+      <span th:case="'BRASIL'">Brasil</span>
+      <span th:case="'CHINA'">China</span>
+      <span th:case="'ALEMANIA'">Alemania</span>
+      <span th:case="'ITALIA'">Italia</span>
+      <span th:case="'COREAdelSur'">Corea del Sur</span>
+      <span th:case="'INDIA'">India</span>
+      <span th:case="'MEXICO'">México</span>
+      <span th:case="'FRANCIA'">Francia</span>
+      <span th:case="'JAPON'">Japón</span>
+      <span th:case="'RUSIA'">Rusia</span>
+      <span th:case="*" th:text="${tramite.vehiculo.paisOrigen}"></span>
+    </span>
+  </p>
 </div>
 
-
-<div th:if="${tramite.viajaConMenor}">
+<!-- Datos del Menor -->
+<div th:if="${tramite.viajaConMenor and tramite.menor != null}" class="section">
   <h2>Datos del Menor</h2>
-  <p th:if="${tramite.menor != null and tramite.menor.nombre != null}">
-    <strong>Nombre del Menor:</strong>
+  <p th:if="${tramite.menor.nombre != null and !tramite.menor.nombre.isEmpty()}">
+    <strong>Nombre:</strong>
     <span th:text="${tramite.menor.nombre}"></span>
   </p>
 
+  <p th:if="${tramite.menor.segundoNombre != null and !tramite.menor.segundoNombre.isEmpty()}">
+    <strong>Segundo Nombre:</strong>
+    <span th:text="${tramite.menor.segundoNombre}"></span>
+  </p>
+
+  <p th:if="${tramite.menor.apellidoPaterno != null and !tramite.menor.apellidoPaterno.isEmpty()}">
+    <strong>Apellido Paterno:</strong>
+    <span th:text="${tramite.menor.apellidoPaterno}"></span>
+  </p>
+
+  <p th:if="${tramite.menor.apellidoMaterno != null and !tramite.menor.apellidoMaterno.isEmpty()}">
+    <strong>Apellido Materno:</strong>
+    <span th:text="${tramite.menor.apellidoMaterno}"></span>
+  </p>
+
+  <p th:if="${tramite.menor.run != null and !tramite.menor.run.isEmpty()}">
+    <strong>RUN:</strong>
+    <span th:text="${tramite.menor.run}"></span><span th:if="${tramite.menor.dv != null and !tramite.menor.dv.isEmpty()}">-<span th:text="${tramite.menor.dv}"></span></span>
+  </p>
+
+  <p th:if="${tramite.menor.tipoParentesco != null}">
+    <strong>Parentesco:</strong>
+    <span th:switch="${tramite.menor.tipoParentesco}">
+      <span th:case="'HIJO'">Hijo</span>
+      <span th:case="'HIJA'">Hija</span>
+      <span th:case="'SOBRINO'">Sobrino</span>
+      <span th:case="'SOBRINA'">Sobrina</span>
+      <span th:case="'NIETO'">Nieto</span>
+      <span th:case="'NIETA'">Nieta</span>
+      <span th:case="'OTRO'">Otro</span>
+      <span th:case="*" th:text="${tramite.menor.tipoParentesco}"></span>
+    </span>
+  </p>
 </div>
 
-<a href="/home">Volver al Menu</a>
+<!-- Datos del Alimento -->
+<div th:if="${tramite.tipoAlimento and tramite.alimento != null}" class="section">
+  <h2>Datos del Alimento</h2>
+  <p th:if="${tramite.alimento.nombre != null and !tramite.alimento.nombre.isEmpty()}">
+    <strong>Nombre del Alimento:</strong>
+    <span th:text="${tramite.alimento.nombre}"></span>
+  </p>
+
+  <p th:if="${tramite.alimento.kilogramos != null}">
+    <strong>Kilogramos:</strong>
+    <span th:text="${tramite.alimento.kilogramos}"></span> kg
+  </p>
+
+  <p th:if="${tramite.alimento.tipoAlimento != null}">
+    <strong>Tipo de Alimento:</strong>
+    <span th:switch="${tramite.alimento.tipoAlimento}">
+      <span th:case="'CARNES'">Carnes</span>
+      <span th:case="'FRUTAS'">Frutas</span>
+      <span th:case="'VERDURAS'">Verduras</span>
+      <span th:case="'VEGETALES'">Vegetales</span>
+      <span th:case="'LEGUMBRES'">Legumbres</span>
+      <span th:case="*" th:text="${tramite.alimento.tipoAlimento}"></span>
+    </span>
+  </p>
+</div>
+
+<!-- Mensaje si no hay datos adicionales -->
+<div th:if="${!tramite.vehiculoPropio and !tramite.viajaConMenor and !tramite.tipoAlimento}" class="section">
+  <p><em>No se registraron datos adicionales de vehículo, menor o alimentos.</em></p>
+</div>
+
+<!-- Botones de navegación -->
+<div class="navigation">
+  <a href="/home" class="btn">Volver al Menú</a>
+  <a href="/tramite" class="btn">Nuevo Trámite</a>
+</div>
+
+<style>
+  .section {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+
+  .section h2 {
+    color: #333;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .section p {
+    margin: 0.5rem 0;
+    line-height: 1.6;
+  }
+
+  .navigation {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    margin: 0 0.5rem;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+
+  .btn:hover {
+    background-color: #0056b3;
+  }
+</style>
+
 </body>
 </html>

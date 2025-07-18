@@ -1,44 +1,285 @@
+/* Estilos base */
 body {
-  background: linear-gradient(135deg, #99ccff, #66b2ff, #3399ff) !important;
-  font-family: 'Arial', sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  margin: 0;
+    background: linear-gradient(135deg, #e6f2ff, #b3d9ff, #80bfff);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    color: #333;
 }
 
+/* Header institucional */
+.header-aduana {
+    background: linear-gradient(to right, #0055a5, #003d7a);
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 5px solid #e6f2ff;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 5px;
+}
+
+.logo {
+    height: 50px;
+}
+
+.logo-text h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.logo-text p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Menú de navegación */
+.nav-menu {
+    background-color: #0055a5;
+    padding: 10px 0;
+    margin-bottom: 30px;
+}
+
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.nav-menu a:hover, .nav-menu a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Contenedor del login */
 .login-container {
-  background: linear-gradient(145deg, #f0f7ff, #ffffff);
-  padding: 40px;
-  border-radius: 12px;
-  width: 100%;
-  max-width: 450px;
-  box-shadow: 0 10px 30px rgba(0, 91, 179, 0.2);
-  border: 2px solid #0077cc;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 91, 179, 0.2);
+    border: 2px solid #0077cc;
+    max-width: 500px;
+    margin: 0 auto 40px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
 }
 
-h2 {
-  color: #0055a5;
-  text-align: center;
-  margin-bottom: 30px;
-  font-size: 28px;
+.login-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, #0077cc, #0055a5);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-header h2 {
+    color: #0055a5;
+    margin: 0 0 10px 0;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.login-subtitle {
+    color: #666;
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Formulario de login */
+.login-form {
+    margin-top: 30px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #0077cc;
+    font-size: 18px;
 }
 
 input {
-  background: rgba(255, 255, 255, 0.9) !important;
-  width: 100%;
-  padding: 14px;
-  margin: 12px 0;
-  border: 1px solid #0077cc;
-  border-radius: 6px;
-  font-size: 16px;
-  transition: all 0.3s;
+    width: 100%;
+    padding: 14px 14px 14px 45px;
+    border: 1px solid #0077cc;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: all 0.3s;
+    background: rgba(255, 255, 255, 0.95);
 }
 
 input:focus {
-  border-color: #0055a5;
-  box-shadow: 0 0 0 3px rgba(0, 119, 204, 0.3);
-  outline: none;
+    border-color: #0055a5;
+    box-shadow: 0 0 0 3px rgba(0, 119, 204, 0.3);
+    outline: none;
 }
 
+/* Mensaje de error */
+.error-message {
+    background: #ffebee;
+    color: #c62828;
+    padding: 12px 15px;
+    border-radius: 6px;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-left: 4px solid #c62828;
+}
+
+/* Botones */
+.btn-login {
+    background: linear-gradient(to bottom, #0077cc, #0055a5);
+    color: white;
+    padding: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    width: 100%;
+    transition: all 0.3s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-login:hover {
+    background: linear-gradient(to bottom, #0055a5, #003d7a);
+    transform: translateY(-3px);
+    box-shadow: 0 7px 14px rgba(0,0,0,0.3);
+}
+
+.login-footer {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.register-link {
+    color: #0077cc;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: color 0.3s;
+}
+
+.register-link:hover {
+    color: #0055a5;
+    text-decoration: underline;
+}
+
+.btn-volver {
+    background: white;
+    color: #0055a5;
+    border: 1px solid #0055a5;
+    padding: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    width: 100%;
+    transition: all 0.3s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-volver:hover {
+    background: #f0f5ff;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Sección de contacto */
+.contact-info {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.contact-info h3 {
+    color: #0055a5;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-info p {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .login-container {
+        padding: 30px 20px;
+    }
+    
+    .nav-menu ul {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .login-header h2 {
+        font-size: 1.5rem;
+    }
+}

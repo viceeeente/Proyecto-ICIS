@@ -1,55 +1,116 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="icon" th:href="@{/imagenes/icono.jpg}" type="image/jpeg" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Registrar</title>
+    <title>Registro de Usuario - Aduanas Chile</title>
     <link rel="stylesheet" th:href="@{/common-styles.css}">
     <link rel="stylesheet" th:href="@{/register.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
+<div class="header-aduana">
+    <div class="logo-container">
+        <img th:src="@{/imagenes/logo-aduana.png.jpg}" alt="Logo Aduanas" class="logo">
+        <div class="logo-text">
+            <h1>ADUANAS CUSTOMS</h1>
+            <p>SERVICIO NACIONAL DE ADUANAS - CHILE</p>
+        </div>
+    </div>
+</div>
+
+<nav class="nav-menu">
+    <ul>
+        <li><a th:href="@{/bienvenida?#}">Inicio</a></li>
+        <li><a th:href="@{/login}">Login</a></li>
+        <li><a th:href="@{/register}" class="active">Registrar</a></li>
+        <li><a th:href="@{/ayuda}">Ayuda</a></li>
+    </ul>
+</nav>
+
 <div id="titulo">
-    <h2>Registro de Usuario</h2>
+    <h2><i class="fas fa-user-plus"></i> Registro de Usuario</h2>
+    <p class="subtitulo">Complete todos los campos para crear su cuenta</p>
 </div>
 
 <div class="form-container">
+    <!-- Formulario de Registro (POST) - Funcionalidad original conservada -->
+    <form th:action="@{/register}" th:object="${usuario}" method="post" class="form-registro">
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="run"><i class="fas fa-id-card"></i> RUN:</label>
+                <input type="text" id="run" th:field="*{run}" pattern="[0-9]{7,8}" inputmode="numeric" maxlength="8" required>
+                <span class="input-hint">Ejemplo: 12345678</span>
+            </div>
 
-    <form th:action="@{/register}" th:object="${usuario}" method="post">
-        <label for="run">Run:</label>
-        <input type="text" id="run" th:field="*{run}" pattern="[0-9]{7,8}" inputmode="numeric" maxlength="8" required>
+            <div class="form-group">
+                <label for="dv"><i class="fas fa-hashtag"></i> Dígito Verificador:</label>
+                <input type="text" id="dv" th:field="*{dv}" required>
+            </div>
 
-        <label for="dv">Digito Verificador:</label>
-        <input type="text" id="dv" th:field="*{dv}" required>
+            <div class="form-group">
+                <label for="nombre"><i class="fas fa-user"></i> Nombre:</label>
+                <input type="text" id="nombre" th:field="*{nombre}" required>
+            </div>
 
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" th:field="*{nombre}" required>
+            <div class="form-group">
+                <label for="segundoNombre"><i class="fas fa-user"></i> Segundo Nombre:</label>
+                <input type="text" id="segundoNombre" th:field="*{segundoNombre}">
+            </div>
 
-        <label for="segundoNombre">Segundo Nombre:</label>
-        <input type="text" id="segundoNombre" th:field="*{segundoNombre}">
+            <div class="form-group">
+                <label for="apellidoPaterno"><i class="fas fa-user-tag"></i> Apellido Paterno:</label>
+                <input type="text" id="apellidoPaterno" th:field="*{apellidoPaterno}">
+            </div>
 
-        <label for="apellidoPaterno">Apellido Paterno:</label>
-        <input type="text" id="apellidoPaterno" th:field="*{apellidoPaterno}">
+            <div class="form-group">
+                <label for="apellidoMaterno"><i class="fas fa-user-tag"></i> Apellido Materno:</label>
+                <input type="text" id="apellidoMaterno" th:field="*{apellidoMaterno}">
+            </div>
 
-        <label for="apellidoMaterno">Apellido Materno:</label>
-        <input type="text" id="apellidoMaterno" th:field="*{apellidoMaterno}">
+            <div class="form-group">
+                <label for="nacionalidad"><i class="fas fa-globe-americas"></i> Nacionalidad:</label>
+                <input type="text" id="nacionalidad" th:field="*{nacionalidad}">
+            </div>
 
-        <label for="claveUnica">Clave Unica:</label>
-        <input type="password" id="claveUnica" th:field="*{claveUnica}">
+            <div class="form-group">
+                <label for="claveUnica"><i class="fas fa-key"></i> Clave Única:</label>
+                <input type="password" id="claveUnica" th:field="*{claveUnica}">
+            </div>
 
-        <label for="password">Contraseña:</label>
-        <input type="password" id="password" th:field="*{password}">
+            <div class="form-group">
+                <label for="password"><i class="fas fa-lock"></i> Contraseña:</label>
+                <input type="password" id="password" th:field="*{password}">
+                <span class="input-hint">Mínimo 8 caracteres</span>
+            </div>
+        </div>
 
-        <label for="nacionalidad">Nacionalidad:</label>
-        <input type="text" id="nacionalidad" th:field="*{nacionalidad}">
-
-        <button type="submit">Registrar</button>
+        <div class="form-actions">
+            <button type="submit" class="btn-registro">
+                <i class="fas fa-user-plus"></i> Registrar
+            </button>
+        </div>
     </form>
 
+    <!-- Formulario de Volver (GET) - Funcionalidad original conservada -->
     <form th:action="@{/bienvenida}" method="get" class="form-volver">
-        <button type="submit" class="btn-volver">Volver</button>
+        <button type="submit" class="btn-volver">
+            <i class="fas fa-arrow-left"></i> Volver
+        </button>
     </form>
 </div>
 
+<div class="contact-info">
+    <h3><i class="fas fa-info-circle"></i> Contacto</h3>
+    <p><i class="fas fa-map-marker-alt"></i> Dirección: Av. Presidente Errázuriz 1500, Santiago</p>
+    <p><i class="fas fa-phone"></i> Teléfono: +56 2 2828 2000</p>
+    <p><i class="fas fa-clock"></i> Horario: Lunes a Viernes 09:00 - 14:00 hrs</p>
+</div>
+
+<footer class="footer">
+    <p>© 2023 Servicio Nacional de Aduanas. Todos los derechos reservados.</p>
+</footer>
 
 </body>
 </html>

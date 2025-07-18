@@ -8,7 +8,7 @@
 <body>
 
 <div id="titulo">
-  <h2>Fomulario para Ingreso/Salida</h2>
+  <h2>Formulario para Ingreso/Salida</h2>
 </div>
 
 <form th:action="@{/tramite}" th:object="${tramiteFormularioSalidaOIngreso}" method="post">
@@ -60,10 +60,20 @@
     <label for="color">Color:</label>
     <input type="text" id="color" th:field="*{vehiculo.color}">
 
-
-    <select th:field="*{vehiculo.paisOrigen}">
-              th:value="${pais}" th:text="${pais}">
-      </option>
+    <label for="paisOrigen">País de Origen:</label>
+    <select id="paisOrigen" th:field="*{vehiculo.paisOrigen}">
+      <option value="">Seleccione un país</option>
+      <option value="EEUU">Estados Unidos</option>
+      <option value="BRASIL">Brasil</option>
+      <option value="CHINA">China</option>
+      <option value="ALEMANIA">Alemania</option>
+      <option value="ITALIA">Italia</option>
+      <option value="COREAdelSur">Corea del Sur</option>
+      <option value="INDIA">India</option>
+      <option value="MEXICO">México</option>
+      <option value="FRANCIA">Francia</option>
+      <option value="JAPON">Japón</option>
+      <option value="RUSIA">Rusia</option>
     </select>
 
   </div>
@@ -74,42 +84,77 @@
 
   <div id="menuMenor" style="display: none;">
 
-    <label for="run">Run:</label>
-    <input type="text" id="run" th:field="*{menor.run}" pattern="[0-9]{7,8}" inputmode="numeric" maxlength="8" required>
+    <label for="runMenor">Run:</label>
+    <input type="text" id="runMenor" th:field="*{menor.run}" pattern="[0-9]{7,8}" inputmode="numeric" maxlength="8">
 
-    <label for="dv">Dv:</label>
-    <input type="text" id="dv" th:field="*{menor.dv}" maxlength="1">
+    <label for="dvMenor">Dv:</label>
+    <input type="text" id="dvMenor" th:field="*{menor.dv}" maxlength="1">
 
     <label for="nombreMenor">Nombre del menor:</label>
     <input type="text" id="nombreMenor" th:field="*{menor.nombre}">
 
-    <label for="segundoNombre">Segundo Nombre:</label>
-    <input type="text" id="segundoNombre" th:field="*{menor.segundoNombre}">
+    <label for="segundoNombreMenor">Segundo Nombre:</label>
+    <input type="text" id="segundoNombreMenor" th:field="*{menor.segundoNombre}">
 
-    <label for="apellidoPaterno">Apellido Paterno:</label>
-    <input type="text" id="apellidoPaterno" th:field="*{menor.apellidoPaterno}">
+    <label for="apellidoPaternoMenor">Apellido Paterno:</label>
+    <input type="text" id="apellidoPaternoMenor" th:field="*{menor.apellidoPaterno}">
 
-    <label for="apellidoMaterno">Apellido Materno:</label>
-    <input type="text" id="apellidoMaterno" th:field="*{menor.apellidoMaterno}">
+    <label for="apellidoMaternoMenor">Apellido Materno:</label>
+    <input type="text" id="apellidoMaternoMenor" th:field="*{menor.apellidoMaterno}">
 
-    <select th:field="*{menor.tipoParentesco}">
-              th:value="${parentesco}" th:text="${parentesco}">
-      </option>
+    <label for="tipoParentesco">Tipo de Parentesco:</label>
+    <select id="tipoParentesco" th:field="*{menor.tipoParentesco}">
+      <option value="">Seleccione parentesco</option>
+      <option value="HIJO">Hijo</option>
+      <option value="HIJA">Hija</option>
+      <option value="SOBRINO">Sobrino</option>
+      <option value="SOBRINA">Sobrina</option>
+      <option value="NIETO">Nieto</option>
+      <option value="NIETA">Nieta</option>
+      <option value="OTRO">Otro</option>
     </select>
 
   </div>
 
-  <form th:action="@{/tramite}" method="post">
-    <button type="submit">Enviar</button>
-  </form>
+  <input type="hidden" name="tipoAlimento" value="false" />
+  <input type="checkbox" id="tipoAlimento" th:field="*{tipoAlimento}" onclick="mostrarOcultar('menuAlimento', this)">
+  <label>¿Transporta alimentos?</label>
 
+  <div id="menuAlimento" style="display: none;">
+
+    <label for="nombreAlimento">Nombre del Alimento:</label>
+    <input type="text" id="nombreAlimento" th:field="*{alimento.nombre}">
+
+    <label for="kilogramos">Kilogramos:</label>
+    <input type="number" id="kilogramos" th:field="*{alimento.kilogramos}" step="0.01" min="0">
+
+    <label for="tipoAlimentoSelect">Tipo de Alimento:</label>
+    <select id="tipoAlimentoSelect" th:field="*{alimento.tipoAlimento}">
+      <option value="">Seleccione tipo</option>
+      <option value="CARNES">Carnes</option>
+      <option value="FRUTAS">Frutas</option>
+      <option value="VERDURAS">Verduras</option>
+      <option value="VEGETALES">Vegetales</option>
+      <option value="LEGUMBRES">Legumbres</option>
+    </select>
+
+  </div>
+
+  <button type="submit">Enviar Trámite</button>
 
 </form>
 
 <script>
   function mostrarOcultar(id, checkbox) {
-  const seccion = document.getElementById(id);
-  seccion.style.display = checkbox.checked ? 'block' : 'none';
+    const seccion = document.getElementById(id);
+    const inputs = seccion.querySelectorAll("input, select");
+    const mostrar = checkbox.checked;
+
+    seccion.style.display = mostrar ? 'block' : 'none';
+
+    inputs.forEach(input => {
+      input.disabled = !mostrar;
+    });
   }
 
   window.onload = function () {
@@ -122,21 +167,13 @@
       if(vehiculoCheck) {
           mostrarOcultar('menuVehiculo', vehiculoCheck);
       }
+
+      const alimentoCheck = document.getElementById('tipoAlimento');
+      if(alimentoCheck) {
+          mostrarOcultar('menuAlimento', alimentoCheck);
+      }
   };
-
-  function mostrarOcultar(id, checkbox) {
-    const seccion = document.getElementById(id);
-    const inputs = seccion.querySelectorAll("input, select");
-    const mostrar = checkbox.checked;
-
-    seccion.style.display = mostrar ? 'block' : 'none';
-
-    inputs.forEach(input => {
-      input.disabled = !mostrar;
-    });
-  }
 </script>
-
 
 </body>
 </html>

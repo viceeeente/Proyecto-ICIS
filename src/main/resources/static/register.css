@@ -1,84 +1,255 @@
+/* Estilos base - conservados de tu versión original */
 body {
-  background: linear-gradient(135deg, #b3d9ff, #80c0ff, #4da6ff) !important;
-  font-family: 'Arial', sans-serif;
-  min-height: 100vh;
-  margin: 0;
-  padding: 30px;
+    background: linear-gradient(135deg, #e6f2ff, #b3d9ff, #80bfff);
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    color: #333;
 }
 
+/* Header institucional mejorado */
+.header-aduana {
+    background: linear-gradient(to right, #0055a5, #003d7a);
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 5px solid #e6f2ff;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 5px;
+}
+
+.logo {
+    height: 50px;
+}
+
+.logo-text h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.logo-text p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Menú de navegación mejorado */
+.nav-menu {
+    background-color: #0055a5;
+    padding: 10px 0;
+    margin-bottom: 30px;
+}
+
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.nav-menu a:hover, .nav-menu a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Título del formulario - conservando tu estructura */
 #titulo {
-  background: linear-gradient(to right, #0080ff, #0066cc);
-  color: white;
-  padding: 25px;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  margin-bottom: 40px;
+    background: linear-gradient(to right, #0077cc, #0055a5);
+    color: white;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin: 0 auto 40px;
+    max-width: 800px;
 }
 
-h2 {
-  margin: 0;
-  font-size: 28px;
+#titulo h2 {
+    margin: 0;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
+.subtitulo {
+    margin-top: 10px;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Contenedor del formulario - conservado de tu versión */
 .form-container {
-  background: rgba(255, 255, 255, 0.9);
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-  border: 2px solid #0080ff;
-  max-width: 600px;
-  margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    border: 2px solid #0077cc;
+    max-width: 800px;
+    margin: 0 auto 40px;
 }
 
-form {
-  background: none;
-  padding: 0;
-  box-shadow: none;
-  border: none;
+/* Grid para organizar los campos */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
 }
 
-label {
-  display: block;
-  margin-top: 20px;
-  color: #0055a5;
-  font-weight: bold;
+/* Estilos de los campos - conservando tu funcionalidad */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    color: #0055a5;
+    font-weight: bold;
 }
 
 input {
-  background: rgba(255, 255, 255, 0.95) !important;
-  width: 100%;
-  padding: 12px;
-  margin: 8px 0;
-  border: 1px solid #0077cc;
-  border-radius: 6px;
-  font-size: 16px;
-  transition: all 0.3s;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #0077cc;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: all 0.3s;
+    background: rgba(255, 255, 255, 0.95);
 }
 
 input:focus {
-  border-color: #0055a5;
-  box-shadow: 0 0 0 3px rgba(0, 119, 204, 0.3);
-  outline: none;
+    border-color: #0055a5;
+    box-shadow: 0 0 0 3px rgba(0, 119, 204, 0.3);
+    outline: none;
+}
+
+.input-hint {
+    display: block;
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+/* Botones - conservando tu funcionalidad original */
+.form-actions {
+    margin-top: 30px;
 }
 
 button {
-  background: linear-gradient(to bottom, #0066cc, #004d99) !important;
-  color: white !important;
-  padding: 16px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 18px;
-  font-weight: bold;
-  margin-top: 30px;
-  width: 100%;
-  transition: all 0.3s;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
-button:hover {
-  background: linear-gradient(to bottom, #0055a5, #003d7a) !important;
-  transform: translateY(-3px);
-  box-shadow: 0 7px 14px rgba(0,0,0,0.3);
+.btn-registro {
+    background: linear-gradient(to bottom, #0077cc, #0055a5);
+    color: white;
+}
+
+.btn-registro:hover {
+    background: linear-gradient(to bottom, #0055a5, #003d7a);
+    transform: translateY(-3px);
+    box-shadow: 0 7px 14px rgba(0,0,0,0.3);
+}
+
+.form-volver {
+    margin-top: 15px;
+}
+
+.btn-volver {
+    background: white;
+    color: #0055a5;
+    border: 1px solid #0055a5;
+}
+
+.btn-volver:hover {
+    background: #f0f5ff;
+    transform: translateY(-3px);
+}
+
+/* Sección de contacto */
+.contact-info {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.contact-info h3 {
+    color: #0055a5;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-info p {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-menu ul {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+    #titulo {
+        padding: 15px;
+    }
+
+    #titulo h2 {
+        font-size: 1.5rem;
+    }
 }

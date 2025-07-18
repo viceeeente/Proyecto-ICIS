@@ -1,51 +1,164 @@
+/* Estilos base - basados en tu código original */
 body {
-  background: linear-gradient(135deg, #cce5ff, #99ccff, #66b2ff) !important;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  padding: 20px;
-  min-height: 100vh;
+    background: linear-gradient(135deg, #cce5ff, #99ccff, #66b2ff) !important;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    color: #333;
 }
 
+/* Header institucional - versión mejorada */
 #Aplicacion-de-Aduanas {
-  background: linear-gradient(to right, #0066cc, #004d99);
-  color: white;
-  padding: 25px;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  margin-bottom: 40px;
+    background: linear-gradient(to right, #0066cc, #004d99);
+    color: white;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin: 0 auto 40px;
+    max-width: 800px;
+    border-bottom: 5px solid #e6f2ff;
 }
 
-form {
-  background: rgba(255, 255, 255, 0.85);
-  padding: 30px;
-  border-radius: 10px;
-  margin: 25px 0;
-  border: 2px solid #0066cc;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
-  transition: all 0.3s;
+.header-content h1 {
+    margin: 0;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
 }
 
-form:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+.header-content p {
+    margin: 10px 0 0 0;
+    font-size: 1rem;
+    opacity: 0.9;
 }
 
-button {
-  background: linear-gradient(to bottom, #004d99, #003366) !important;
-  color: white !important;
-  padding: 14px 28px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  transition: all 0.3s;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+/* Contenedor principal */
+.main-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto 40px;
 }
 
-button:hover {
-  background: linear-gradient(to bottom, #003d7a, #00264d) !important;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+/* Tarjetas de servicio - basadas en tus formularios originales */
+.service-card {
+    background: rgba(255, 255, 255, 0.85);
+    padding: 30px;
+    border-radius: 10px;
+    margin: 0;
+    border: 2px solid #0066cc;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+    width: 350px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.card-icon {
+    font-size: 3rem;
+    color: #0066cc;
+    margin-bottom: 20px;
+}
+
+.card-content h3 {
+    color: #004d99;
+    margin: 0 0 10px 0;
+    font-size: 1.5rem;
+}
+
+.card-content p {
+    color: #666;
+    margin: 0 0 25px 0;
+    font-size: 1rem;
+}
+
+.card-button {
+    background: linear-gradient(to bottom, #004d99, #003366) !important;
+    color: white !important;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.card-button:hover {
+    background: linear-gradient(to bottom, #003d7a, #00264d) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+/* Sección de contacto */
+.contact-info {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.contact-info h3 {
+    color: #0066cc;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-info p {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+    font-size: 0.9rem;
+    background: white;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-card {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    #Aplicacion-de-Aduanas h1 {
+        font-size: 1.5rem;
+    }
 }
